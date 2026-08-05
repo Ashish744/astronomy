@@ -143,8 +143,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       form.querySelectorAll('input[data-rule="email"]').forEach(input => {
         const field = input.closest('.field');
-        if (!EMAIL_RE.test(input.value.trim())){ setError(field, 'Enter a valid email address, e.g. name@gmail.com'); valid = false; }
-        else clearError(field);
+        const emailValue = input.value.trim();
+
+        if (!emailValue){
+          setError(field, 'Email address is required.');
+          valid = false;
+        } else if (!EMAIL_RE.test(emailValue)){
+          setError(field, 'Enter a valid email address, e.g. name@gmail.com');
+          valid = false;
+        } else {
+          clearError(field);
+        }
       });
 
       form.querySelectorAll('input[data-rule="password"]').forEach(input => {

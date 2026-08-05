@@ -842,6 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       input.classList.remove('invalid');
+      form.reset();
       window.location.href = '404error.html';
     });
 
