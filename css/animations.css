@@ -200,18 +200,62 @@
 .timeline-item p{ font-size:14.5px; color:var(--text-muted); margin-top:10px; line-height:1.7; max-width:520px; }
 
 /* ============================================================
-   FLOATING CARDS (parallax)
+   STATIC LIVE STATS GRID
    ============================================================ */
-.float-stage{ position:relative; height:520px; }
-.float-card{
-  position:absolute; width:220px; padding:22px; border-radius:var(--radius-m);
-  background:linear-gradient(160deg,var(--surface),var(--surface-2)); border:1px solid var(--line-strong);
-  box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
-  animation:floaty 6s ease-in-out infinite;
+.stats-grid{
+  display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:18px; align-items:stretch;
 }
-.float-card h5{ font-size:14px; }
-.float-card .big-num{ font-family:var(--f-mono); font-size:30px; color:var(--flame-1); margin-top:6px; }
-.float-card p{ font-size:12.5px; color:var(--text-muted); margin-top:6px; }
+.stats-grid--compact{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+.stat-card{
+  width:100%; padding:18px 18px 20px; border-radius:24px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), transparent 18%),
+    radial-gradient(circle at top right, rgba(255,138,61,.16), transparent 42%),
+    linear-gradient(160deg, rgba(20,22,34,.98), rgba(12,14,24,.96));
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 28px 60px -34px rgba(0,0,0,.88),
+    inset 0 1px 0 rgba(255,255,255,.07);
+  backdrop-filter:blur(12px);
+  display:grid; gap:12px;
+  overflow:hidden;
+  position:relative;
+}
+.stat-card::after{
+  content:''; position:absolute; inset:0 auto auto 0; width:100%; height:3px;
+  background:linear-gradient(90deg, rgba(255,138,61,.8), transparent 78%);
+}
+.stat-card::before{
+  content:''; position:absolute; inset:auto -40px -40px auto; width:110px; height:110px;
+  border-radius:50%; background:radial-gradient(circle, rgba(255,138,61,.24), transparent 68%);
+  pointer-events:none;
+}
+.float-card-head{ display:flex; align-items:center; gap:10px; position:relative; z-index:1; }
+.float-card-icon{
+  width:40px; height:40px; flex-shrink:0; border-radius:12px;
+  display:grid; place-items:center; background:rgba(255,138,61,.12);
+  border:1px solid rgba(255,138,61,.25); color:var(--flame-1);
+  box-shadow:0 12px 24px -18px rgba(255,138,61,.95);
+}
+.float-card-icon svg{ width:18px; height:18px; }
+.stat-card h5{
+  margin:0; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--text-faint);
+}
+.stat-card .big-num{
+  font-family:var(--f-mono); font-size:31px; color:var(--flame-1); margin:0;
+  line-height:1; letter-spacing:.04em; position:relative; z-index:1;
+}
+.stat-card p{
+  font-size:13px; color:var(--text-muted); margin:0; line-height:1.6;
+  position:relative; z-index:1;
+}
+@media (max-width:980px){
+  .stats-grid, .stats-grid--compact{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width:640px){
+  .stats-grid, .stats-grid--compact{ grid-template-columns:1fr; }
+}
 
 /* ============================================================
    HORIZONTAL SCROLL SECTION

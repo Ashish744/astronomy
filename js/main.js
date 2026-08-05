@@ -786,20 +786,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------------------------------------------------------
-     11. FLOATING CARDS — mouse parallax
+     11. LIVE STATS GRID
   --------------------------------------------------------- */
-  document.querySelectorAll('.float-stage').forEach(stage => {
-    const cards = stage.querySelectorAll('.float-card');
-    stage.addEventListener('mousemove', e => {
-      const rect = stage.getBoundingClientRect();
-      const px = (e.clientX - rect.left)/rect.width - .5;
-      const py = (e.clientY - rect.top)/rect.height - .5;
-      cards.forEach((card,i) => {
-        const depth = (i+1)*10;
-        if (hasGSAP) gsap.to(card, { x: px*depth, y: py*depth, duration:.6, ease:'power2.out' });
-      });
-    });
-  });
 
   /* ---------------------------------------------------------
      12. FLIP CARDS
