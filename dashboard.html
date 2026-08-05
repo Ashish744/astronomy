@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard � Stackly</title>
+  <meta name="description" content="Your Stackly dashboard for observations, bookings, and progress.">
+  <link rel="icon" href="assets/logo.webp">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+  <div id="spotlight"></div>
+  <div class="sidebar-backdrop"></div>
+  <div class="dash-shell">
+    <aside class="dash-sidebar" id="dashSidebar" aria-label="Dashboard navigation">
+      <div class="side-label">Navigation</div>
+      <button type="button" class="side-link active" data-section="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Overview</button>
+      <button type="button" class="side-link" data-section="observations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/></svg>Observations</button>
+      <button type="button" class="side-link" data-section="bookings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M8 3v4M16 3v4"/></svg>Bookings<span class="badge">2</span></button>
+      <button type="button" class="side-link" data-section="learning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l9 4.5v11L12 22 3 17.5v-11z"/></svg>Learning</button>
+      <div class="side-label">Account</div>
+      <button type="button" class="side-link" data-section="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Settings</button>
+      <a href="index.html" class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>Log out</a>
+    </aside>
+
+    <main class="dash-main">
+      <div class="dash-brand-row">
+        <img src="assets/logo.webp" alt="Stackly" class="dash-logo">
+        <div class="profile-menu">
+          <button type="button" class="profile-trigger" aria-expanded="false">
+            <span class="avatar">S</span>
+            <span class="profile-label">
+              <strong class="profile-name">Stackly user</strong>
+              <span class="profile-email">hello@stackly.app</span>
+            </span>
+          </button>
+          <div class="profile-dropdown">
+            <a href="#settings">Account settings</a>
+            <a href="login.html">Log out</a>
+          </div>
+        </div>
+      </div>
+      <div class="dash-header">
+        <div>
+          <h1>Welcome back</h1>
+          <p>Your astronomy dashboard is ready. Track your sessions, progress, and bookings in one place.</p>
+        </div>
+        <div class="dash-header-actions">
+          <button class="sidebar-toggle" aria-label="Toggle menu"><span></span></button>
+          <a href="services.html" class="btn btn-ghost">Browse telescopes</a>
+          <button class="btn btn-primary">New booking</button>
+        </div>
+      </div>
+
+      <section id="overview" class="dash-section active">
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-top"><span>Sessions</span><span class="delta up">+3</span></div>
+            <div class="num">12</div>
+            <p>Completed this month</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Hours</span><span class="delta up">+14%</span></div>
+            <div class="num">38.5</div>
+            <p>Observation hours logged</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Targets</span><span class="delta up">+5</span></div>
+            <div class="num">24</div>
+            <p>Unique objects observed</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Courses</span><span class="delta down">-1</span></div>
+            <div class="num">5</div>
+            <p>Active learning paths</p>
+          </article>
+        </div>
+
+        <div class="dash-grid">
+          <section class="panel">
+            <div class="panel-head"><h3>Next session</h3><span>Aug 10 � 10:20 PM</span></div>
+            <p>Preparing the Dark Sky Array for a deep-sky imaging session. Check your equipment and target list.</p>
+            <div class="panel-cta"><button class="btn btn-primary">Open session</button></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Quick notes</h3></div>
+            <ul class="quick-list">
+              <li>Weather window clears after midnight.</li>
+              <li>Remember your red-filter flashlight.</li>
+              <li>Review last session logs before setup.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section id="observations" class="dash-section">
+        <div class="dash-section-header">
+          <h2>Observation log</h2>
+          <p>All recent sessions and target notes in one place.</p>
+        </div>
+        <div class="dash-grid">
+          <section class="panel panel-table">
+            <div class="panel-head"><h3>Recent logs</h3></div>
+            <table class="dash-table">
+              <thead><tr><th>Target</th><th>Date</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Orion Nebula</td><td>Aug 04</td><td><span class="pill active">Complete</span></td></tr>
+                <tr><td>Jupiter</td><td>Aug 01</td><td><span class="pill active">Logged</span></td></tr>
+                <tr><td>Andromeda</td><td>Jul 28</td><td><span class="pill pending">Review</span></td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Sky notes</h3></div>
+            <div class="activity-list">
+              <div class="activity-item"><strong>Good seeing</strong><span>Thin clouds, stable transparency.</span></div>
+              <div class="activity-item"><strong>Technique</strong><span>Tested new filter sequence on M31.</span></div>
+              <div class="activity-item"><strong>Reminder</strong><span>Align guider before imaging.</span></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="bookings" class="dash-section">
+        <div class="dash-section-header">
+          <h2>Bookings</h2>
+          <p>Upcoming reservations and weather-sensitive sessions.</p>
+        </div>
+        <div class="dash-grid">
+          <section class="panel panel-table">
+            <div class="panel-head"><h3>Upcoming bookings</h3></div>
+            <table class="dash-table">
+              <thead><tr><th>Target</th><th>Telescope</th><th>Date</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Saturn</td><td>Lowell Reflector</td><td>Aug 10</td><td><span class="pill active">Confirmed</span></td></tr>
+                <tr><td>Veil Nebula</td><td>Atacama Array</td><td>Aug 15</td><td><span class="pill pending">Pending</span></td></tr>
+                <tr><td>Andromeda</td><td>Southern Node</td><td>Aug 20</td><td><span class="pill active">Confirmed</span></td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Booking tips</h3></div>
+            <ul class="quick-list">
+              <li>Confirm sky conditions 24 hours ahead.</li>
+              <li>Pack a dew heater and extra batteries.</li>
+              <li>Review your target checklist before launch.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section id="learning" class="dash-section">
+        <div class="dash-section-header">
+          <h2>Learning</h2>
+          <p>Track your courses, progress, and upcoming lessons.</p>
+        </div>
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-top"><span>Active courses</span></div>
+            <div class="num">4</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Progress</span></div>
+            <div class="num">72%</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Next lesson</span></div>
+            <div class="num">Narrowband imaging</div>
+          </article>
+        </div>
+        <div class="dash-grid">
+          <section class="panel">
+            <div class="panel-head"><h3>Current track</h3></div>
+            <div class="activity-list">
+              <div class="activity-item"><strong>Narrowband imaging</strong><span>3 of 5 lessons complete.</span></div>
+              <div class="activity-item"><strong>Astrophotography</strong><span>Next lesson unlocks Friday.</span></div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Achievements</h3></div>
+            <ul class="quick-list">
+              <li>Badge earned: Filter Master</li>
+              <li>Badge earned: Night Planner</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section id="settings" class="dash-section">
+        <div class="dash-section-header">
+          <h2>Settings</h2>
+          <p>Update your account and notification preferences.</p>
+        </div>
+        <div class="dash-grid">
+          <section class="panel">
+            <div class="panel-head"><h3>Profile</h3></div>
+            <div class="details-grid">
+              <div><strong>Name</strong><span class="profile-name">Amara Solis</span></div>
+              <div><strong>Email</strong><span class="user-email">amara@stackly.app</span></div>
+              <div><strong>Member since</strong><span>Jan 2024</span></div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Preferences</h3></div>
+            <div class="details-grid">
+              <div><strong>Dark mode</strong><span>Enabled</span></div>
+              <div><strong>Notifications</strong><span>Email and push</span></div>
+              <div><strong>Language</strong><span>English</span></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

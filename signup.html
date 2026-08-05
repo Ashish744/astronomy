@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create account — Stackly</title>
+<meta name="description" content="Create a free Stackly account and start observing with two guided telescope sessions.">
+<link rel="icon" href="assets/logo.webp">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div id="preloader">
+  <div class="bento-loader"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="loader-caption">Aligning <em>telescopes</em>…</div>
+</div>
+<div id="spotlight"></div>
+
+
+<main class="auth-shell">
+
+  <div class="auth-visual">
+    <canvas class="starfield" data-density="110"></canvas>
+    <div class="auth-planet"></div>
+    <div class="auth-copy">
+      <div class="eyebrow">Two sessions, free</div>
+      <h2>Every account starts with a real look through a real telescope</h2>
+      <p>No equipment required — just a target and a clear night somewhere in the network.</p>
+    </div>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-box">
+      <div class="brand-sm"><img src="assets/logo.webp" alt=""></div>
+      <button class="page-back" onclick="history.back()" aria-label="Go back">← Back</button>
+      <h1>Create your account</h1>
+      <p class="sub">Free to start — two guided sessions included.</p>
+
+      <form data-validate novalidate data-redirect="dashboard.html">
+        <div class="field-row">
+          <div class="field">
+            <label for="sfname">First name</label>
+            <input type="text" id="sfname" data-rule="name" placeholder="Amara" required>
+            <div class="field-error">Only letters are allowed.</div>
+          </div>
+          <div class="field">
+            <label for="slname">Last name</label>
+            <input type="text" id="slname" data-rule="name" placeholder="Solis" required>
+            <div class="field-error">Only letters are allowed.</div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="semail">Email address</label>
+          <input type="email" id="semail" data-rule="email" placeholder="name@gmail.com" required>
+          <div class="field-error">Enter a valid email address, e.g. name@gmail.com</div>
+        </div>
+        <div class="field">
+          <label for="spass">Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="spass" data-rule="password" placeholder="At least 8 characters" required>
+            <button type="button" class="pw-toggle" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="pw-strength"><i></i><i></i><i></i><i></i></div>
+          <div class="field-error">Password must be at least 8 characters.</div>
+        </div>
+        <div class="field">
+          <label for="spass2">Confirm password</label>
+          <div class="pw-wrap">
+            <input type="password" id="spass2" data-rule="confirm-password" placeholder="Re-enter your password" required>
+            <button type="button" class="pw-toggle" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="field-error">Passwords do not match.</div>
+        </div>
+        <div class="remember-row" style="margin-bottom:20px;">
+          <label class="checkbox-row"><input type="checkbox" data-rule="terms"> I agree to the <a href="terms.html" style="color:var(--flame-1);">Terms</a> &amp; <a href="privacy.html" style="color:var(--flame-1);">Privacy Policy</a></label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" data-label="Create account">Create account</button>
+        <div class="form-success"><span>✓</span> Account created — redirecting to your dashboard…</div>
+      </form>
+
+      <div class="auth-divider">or continue with</div>
+      <div class="social-row">
+        <button class="social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 010 18"/></svg>Google</button>
+        <button class="social-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4L4 20"/></svg>Apple</button>
+      </div>
+
+      <p class="auth-foot-link">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+
+</main>
+
+<footer style="text-align:center; padding:32px 0; color:var(--text-faint); font-size:13px; border-top:1px solid var(--line);">
+  © <span data-year></span> Stackly · <a href="privacy.html" style="color:var(--text-faint);">Privacy</a> · <a href="terms.html" style="color:var(--text-faint);">Terms</a>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/validation.js"></script>
+</body>
+</html>

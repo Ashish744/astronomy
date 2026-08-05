@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Lost in space | Stackly</title>
+<meta name="description" content="This page has drifted out of orbit.">
+<link rel="icon" href="assets/logo.webp">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div id="spotlight"></div>
+
+<main class="error-shell" data-hero-in>
+  <canvas class="starfield" data-density="140" style="position:fixed;"></canvas>
+
+  <div class="drift-rock" style="top:20%; left:12%;"></div>
+  <div class="drift-rock" style="width:34px; height:34px; top:65%; right:14%; animation-delay:-3s;"></div>
+  <div class="drift-rock" style="width:44px; height:44px; bottom:12%; left:20%; animation-delay:-5s;"></div>
+
+  <div style="position:relative; z-index:2;">
+    <div class="error-code" data-hero-title>404</div>
+    <h2>This coordinate doesn't exist</h2>
+    <p>The page you're looking for has drifted out of frame — it may have been moved, renamed, or never charted at all.</p>
+    <div class="error-actions">
+      <button class="btn btn-ghost" data-go-back>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;"><path d="M15 18l-6-6 6-6"/></svg>
+        Go back
+      </button>
+      <a href="index.html" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+        Return home
+      </a>
+    </div>
+  </div>
+</main>
+
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
