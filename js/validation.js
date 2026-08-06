@@ -202,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
           success.classList.add('show');
           form.reset();
           form.querySelectorAll('.pw-strength i').forEach(b => b.classList.remove('on'));
+          setTimeout(() => success.classList.remove('show'), 2000);
         }
         if (submitBtn){
           submitBtn.disabled = false;
